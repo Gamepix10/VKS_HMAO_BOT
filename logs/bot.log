@@ -1,0 +1,625 @@
+2024-11-30 15:21:02 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 15:21:03 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 15:21:14 - aiogram.event - INFO - Update id=827328781 is handled. Duration 404 ms by bot id=7297102701
+2024-11-30 15:21:37 - aiogram.event - INFO - Update id=827328782 is handled. Duration 412 ms by bot id=7297102701
+2024-11-30 15:57:51 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 15:57:52 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 15:58:06 - aiogram.event - INFO - Update id=827328783 is handled. Duration 744 ms by bot id=7297102701
+2024-11-30 15:59:35 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 15:59:36 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 15:59:43 - aiogram.event - INFO - Update id=827328784 is handled. Duration 451 ms by bot id=7297102701
+2024-11-30 15:59:54 - aiogram.event - INFO - Update id=827328785 is handled. Duration 161 ms by bot id=7297102701
+2024-11-30 15:59:56 - aiogram.event - INFO - Update id=827328786 is handled. Duration 141 ms by bot id=7297102701
+2024-11-30 15:59:58 - aiogram.event - INFO - Update id=827328787 is handled. Duration 218 ms by bot id=7297102701
+2024-11-30 16:02:09 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:02:09 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:02:14 - aiogram.event - INFO - Update id=827328788 is not handled. Duration 1 ms by bot id=7297102701
+2024-11-30 16:02:14 - aiogram.event - ERROR - Cause exception while process update id=827328788 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    await message.answer("Привет! Я бот, работающий через asyncio. Как я могу помочь?", reply_markup=start_keyboard())
+                                                                                                     ^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:02:17 - aiogram.event - INFO - Update id=827328789 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:02:17 - aiogram.event - ERROR - Cause exception while process update id=827328789 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    await message.answer("Привет! Я бот, работающий через asyncio. Как я могу помочь?", reply_markup=start_keyboard())
+                                                                                                     ^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:02:18 - aiogram.event - INFO - Update id=827328790 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:02:18 - aiogram.event - ERROR - Cause exception while process update id=827328790 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    await message.answer("Привет! Я бот, работающий через asyncio. Как я могу помочь?", reply_markup=start_keyboard())
+                                                                                                     ^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:04:37 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:04:37 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:04:43 - aiogram.event - INFO - Update id=827328791 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:04:43 - aiogram.event - ERROR - Cause exception while process update id=827328791 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 38, in start_command
+    reply_markup=start_keyboard()
+                 ^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:04:45 - aiogram.event - INFO - Update id=827328792 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:04:45 - aiogram.event - ERROR - Cause exception while process update id=827328792 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 38, in start_command
+    reply_markup=start_keyboard()
+                 ^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:08:06 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:08:07 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:08:12 - aiogram.event - INFO - Update id=827328793 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:08:12 - aiogram.event - ERROR - Cause exception while process update id=827328793 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 38, in start_command
+    reply_markup=start_keyboard()
+                 ^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:12:22 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:12:22 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:12:27 - aiogram.event - INFO - Update id=827328794 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:12:27 - aiogram.event - ERROR - Cause exception while process update id=827328794 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    keyboard = start_inline_keyboard()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_inline_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:13:11 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:13:12 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:13:18 - aiogram.event - INFO - Update id=827328795 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:13:18 - aiogram.event - ERROR - Cause exception while process update id=827328795 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    keyboard = start_inline_keyboard()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_inline_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 2}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:14:13 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:14:14 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:14:17 - aiogram.event - INFO - Update id=827328796 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:14:17 - aiogram.event - ERROR - Cause exception while process update id=827328796 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 15}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    keyboard = start_inline_keyboard()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_inline_keyboard
+    keyboard = InlineKeyboardMarkup(row_width=15)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={'row_width': 15}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:16:12 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:16:12 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:16:32 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:16:32 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:16:34 - aiogram.event - INFO - Update id=827328797 is not handled. Duration 0 ms by bot id=7297102701
+2024-11-30 16:16:34 - aiogram.event - ERROR - Cause exception while process update id=827328797 by bot id=7297102701
+ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+Traceback (most recent call last):
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/main.py", line 36, in start_command
+    keyboard = start_inline_keyboard()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/bot/keyboards/keyboards.py", line 5, in start_inline_keyboard
+    keyboard = InlineKeyboardMarkup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gamepix/Desktop/hantaton/vks_hmao_bot/lib/python3.12/site-packages/pydantic/main.py", line 212, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2024-11-30 16:17:42 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:17:43 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:17:48 - aiogram.event - INFO - Update id=827328798 is handled. Duration 610 ms by bot id=7297102701
+2024-11-30 16:18:29 - aiogram.event - INFO - Update id=827328799 is handled. Duration 420 ms by bot id=7297102701
+2024-11-30 16:18:29 - aiogram.event - INFO - Update id=827328800 is handled. Duration 207 ms by bot id=7297102701
+2024-11-30 16:18:30 - aiogram.event - INFO - Update id=827328801 is handled. Duration 169 ms by bot id=7297102701
