@@ -45,3 +45,21 @@ class APIClient:
         )
         response.raise_for_status()
         return response.json()
+
+    def search_vks(self, query):
+        response = httpx.get(
+            f"{self.BASE_URL}/vks/search", 
+            headers={"Authorization": f"Bearer {self.token}"},
+            params={"query": query}
+        )
+        response.raise_for_status()
+        return response.json()
+    
+    def process_custom_input(self, user_input):
+        response = httpx.post(
+            f"{self.BASE_URL}/process_input",
+            headers={"Authorization": f"Bearer {self.token}"},
+            json={"input": user_input}
+        )
+        response.raise_for_status()
+        return response.json()
