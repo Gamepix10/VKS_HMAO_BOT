@@ -1,0 +1,37 @@
+7297102701:AAE_1tlhZ3WPiUu1b8i_wNXc32LfInY5npg
+
+project/
+├── bot/
+│   ├── handlers/
+│   │   ├── __init__.py
+│   │   ├── auth.py             # Обработчики авторизации
+│   │   ├── schedule.py         # Обработчики планирования ВКС
+│   │   ├── search.py           # Обработчики поиска и фильтрации
+│   │   ├── calendar.py         # Обработчики календаря
+│   │   ├── admin.py            # Обработчики административной панели
+│   ├── keyboards/
+│   │   ├── __init__.py
+│   │   ├── inline.py           # Инлайн-клавиатуры
+│   │   ├── reply.py            # Клавиатуры с быстрыми ответами
+│   ├── middlewares/
+│   │   ├── __init__.py
+│   │   ├── auth_middleware.py  # Проверка авторизации
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── api.py              # Общение с сервером API
+│   │   ├── validators.py       # Валидация данных
+│   │   ├── helpers.py          # Вспомогательные функции
+│   ├── __init__.py
+│   ├── config.py               # Конфигурация проекта
+│   ├── main.py                 # Основной файл для запуска бота
+│   ├── callbacks.py            # Обработчики колбэков
+│   ├── commands.py             # Команды бота
+├── database/
+│   ├── __init__.py
+│   ├── models.py               # Описание ORM моделей
+│   ├── db_manager.py           # Работа с базой данных
+├── logs/
+│   ├── bot.log                 # Логи работы бота
+├── requirements.txt            # Зависимости проекта
+├── README.md                   # Документация проекта
+├── .env 
