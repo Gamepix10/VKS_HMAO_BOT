@@ -14,15 +14,19 @@ class AuthStates(StatesGroup):
     email = State()
     password = State()
 
-# Обработчик команды /start
-@router.message(Command("start"))
-async def start_handler(message: Message, state: FSMContext):
-    user = await get_user(message.from_user.id)
-    if user:
-        await message.answer("Вы уже авторизованы. Для выхода используйте команду /logout.")
-    else:
-        await message.answer("Добро пожаловать! Пожалуйста, введите ваш email.")
-        await state.set_state(AuthStates.email)
+# Обработчик кнопки "Регистрация"
+@router.callback_query(F.data == "register")
+async def register_handler(callback: CallbackQuery, state: FSMContext):
+    await callback.message.answer("Введите ваш email для регистрации:")
+    await state.set_state(AuthStates.email)
+    await callback.answer()  # Закрываем уведомление о нажатии кнопки
+
+# Обработчик кнопки "Логин"
+@router.callback_query(F.data == "login")
+async def login_handler(callback: CallbackQuery, state: FSMContext):
+    await callback.message.answer("Введите ваш email для входа:")
+    await state.set_state(AuthStates.email)
+    await callback.answer()
 
 # Ввод email
 @router.message(AuthStates.email)

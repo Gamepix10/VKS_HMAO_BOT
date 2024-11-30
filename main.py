@@ -1,71 +1,157 @@
-import asyncio
-from aiogram import Bot, Dispatcher, types
-from aiogram.types import Message
-from aiogram.filters import Command
-from aiogram.types import BotCommand
 import logging
-from bot.keyboards.keyboards import start_inline_keyboard
+from aiogram import Bot, Dispatcher
+from aiogram.types import Message, CallbackQuery
+from aiogram.filters import Command
+from config import TELEGRAM_TOKEN
+from api_client import APIClient
+from keyboards import get_main_menu
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+import asyncio
 
-logging.basicConfig(
-    level=logging.INFO,  # Уровень логирования
-    filename="../hantaton/logs/bot.log",  # Имя файла для записи логов
-    filemode="a",        # Режим записи (a - дописывать, w - перезаписывать файл)
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",  # Формат логов
-    datefmt="%Y-%m-%d %H:%M:%S",  # Формат времени
-)
-logger = logging.getLogger(__name__)
+# Логирование
+logging.basicConfig(level=logging.INFO)
 
-async def set_bot_commands(bot: Bot):
-    """
-    Установить команды для меню бота.
-    """
-    commands = [
-        BotCommand(command="/start", description="Запустить бота"),
-        BotCommand(command="/help", description="Помощь"),
-        BotCommand(command="/search", description="Поиск ВКС"),
-        BotCommand(command="/calendar", description="Календарь встреч"),
-        BotCommand(command="/schedule", description="Запланировать ВКС"),
-    ]
-    await bot.set_my_commands(commands)
+# Инициализация бота и диспетчера
+bot = Bot(token=TELEGRAM_TOKEN)
+dp = Dispatcher()
 
+# Инициализация API клиента
+api_client = APIClient()
 
-API_TOKEN = '7297102701:AAE_1tlhZ3WPiUu1b8i_wNXc32LfInY5npg'
-
-async def start_command(message: Message):
-    """Обработчик команды /start."""
-    keyboard = start_inline_keyboard()
-    await message.answer(
-        "Привет! Я бот, работающий через asyncio. Как я могу помочь?", 
-        reply_markup=keyboard
+def get_action_menu_keyboard():
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Регистрация", callback_data="register")],
+            [InlineKeyboardButton(text="Логин", callback_data="login")]
+        ]
     )
+    return keyboard
 
-async def echo_message(message: Message):
-    """Эхо-ответ на любое сообщение."""
-    await message.answer(message.text)
+# Клавиатура для стартовой страницы
+def get_welcome_keyboard():
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Далее", callback_data="next_step")]
+        ]
+    )
+    return keyboard
 
-async def process_callback(callback_query: types.CallbackQuery):
-    if callback_query.data == "register":
-        await callback_query.message.answer("Вы выбрали регистрацию.")
-    elif callback_query.data == "login":
-        await callback_query.message.answer("Вы выбрали логин.")
+# Хэндлер для команды /start (Приветственный экран)
+async def cmd_start(message: Message):
+    text = (
+        "👋 Добро пожаловать в нашего бота!\n\n"
+        "📅 Здесь вы сможете:\n"
+        "- Планировать видеоконференции\n"
+        "- Управлять расписанием\n"
+        "- Просматривать встречи\n\n"
+        "Нажмите **'Далее'**, чтобы начать."
+    )
+    await message.answer(text, reply_markup=get_welcome_keyboard(), parse_mode="Markdown")
 
-async def main():
-    # Создаем экземпляр бота и диспетчера
-    bot = Bot(token=API_TOKEN)
-    dp = Dispatcher()
+# Хэндлер для кнопки "Далее" (начало диалога)
+async def next_step(call: CallbackQuery):
+    # Удаляем предыдущее сообщение
+    await call.message.delete()
 
-    # Регистрируем хендлеры
-    dp.message.register(start_command, Command(commands=["start"]))
-    dp.message.register(echo_message)
-    dp.callback_query.register(process_callback)
+    # Начало диалога
+    await call.message.answer(
+        "Спасибо, что присоединились! 😊\n\n"
+    )
+    await call.message.answer("Выберите действие:", reply_markup=get_action_menu_keyboard())
 
-    # Запускаем polling
+
+
+# Хэндлер для команды /start
+#async def cmd_start(message: Message):
+#ß    await message.answer("Добро пожаловать в систему планирования ВКС! Выберите действие:", reply_markup=get_auth_choice_keyboard())
+
+# Хэндлер для команды /login
+async def cmd_login(call: CallbackQuery):
+    await call.message.answer("Введите email и пароль через пробел. Пример: `email@example.com password`", parse_mode="Markdown")
+
+# Хэндлер для кнопки "Регистрация"
+async def cmd_register(call: CallbackQuery):
+    await call.message.answer("Для регистрации введите: `email@example.com password`.", parse_mode="Markdown")
+
+# Хэндлер для обработки логина
+async def process_login(message: Message):
     try:
-        print("Бот запущен!")
+        email, password = message.text.split(" ")
+        if api_client.login(email, password):
+            await message.answer("Авторизация успешна!", reply_markup=get_main_menu())
+        else:
+            await message.answer("Не удалось авторизоваться. Проверьте данные.")
+    except ValueError:
+        await message.answer("Неверный формат. Используйте: `email@example.com password`", parse_mode="Markdown")
+
+# Хэндлер для обработки регистрации
+async def process_register(message: Message):
+    try:
+        email, password = message.text.split(" ")
+        # Отправляем запрос на регистрацию
+        registration_response = api_client.register(email, password)
+        if registration_response.get("id"):
+            await message.answer("Регистрация успешна! Теперь вы можете войти в систему.")
+        else:
+            await message.answer("Ошибка регистрации. Попробуйте снова.")
+    except ValueError:
+        await message.answer("Неверный формат. Используйте: `email@example.com password`", parse_mode="Markdown")
+
+# Хэндлер для просмотра предстоящих ВКС
+async def upcoming_vcs(call: CallbackQuery):
+    vcs_list = api_client.get_vcs({"status": "upcoming"})
+    if vcs_list:
+        response = "\n\n".join([f"{vcs['title']} - {vcs['date']} ({vcs['organizer']})" for vcs in vcs_list])
+    else:
+        response = "Нет предстоящих ВКС."
+    await call.message.answer(response)
+
+# Хэндлер для создания новой ВКС
+async def create_vcs(call: CallbackQuery):
+    await call.message.answer("Введите данные для новой ВКС в формате:\n`Название, Место, 2023-12-25 15:00, 2 часа, participant1@example.com, participant2@example.com`", parse_mode="Markdown")
+
+# Хэндлер для обработки создания ВКС
+async def process_create_vcs(message: Message):
+    try:
+        data = message.text.split(", ")
+        new_vcs = {
+            "title": data[0],
+            "location": data[1],
+            "start_time": data[2],
+            "duration": data[3],
+            "participants": data[4:]
+        }
+        response = api_client.create_vcs(new_vcs)
+        if response.get("id"):
+            await message.answer(f"ВКС успешно создана! Ссылка: {response.get('link')}")
+        else:
+            await message.answer("Ошибка создания ВКС.")
+    except Exception as e:
+        await message.answer(f"Ошибка: {e}")
+
+# Хэндлер для команды /help
+async def help_command(message: Message):
+    await message.answer("Доступные команды:\n/start - Запустить бота\n/login - Авторизация\n/help - Помощь")
+
+# Регистрация хэндлеров
+dp.message.register(cmd_start, Command("start"))
+dp.callback_query.register(cmd_login, lambda call: call.data == "login")
+dp.callback_query.register(cmd_register, lambda call: call.data == "register")
+dp.message.register(process_login)
+dp.callback_query.register(next_step, lambda call: call.data == "next_step")
+dp.message.register(process_register)
+dp.callback_query.register(upcoming_vcs, lambda call: call.data == "upcoming")
+dp.callback_query.register(create_vcs, lambda call: call.data == "create")
+dp.message.register(process_create_vcs, lambda message: "," in message.text)
+dp.message.register(help_command, Command("help"))
+
+# Главная функция запуска
+async def main():
+    try:
+        print("Бот запущен")
         await dp.start_polling(bot)
-    finally:
-        await bot.session.close()
+    except Exception as e:
+        print(f"Ошибка: {e}")
 
 if __name__ == "__main__":
-    # Запускаем event loop
     asyncio.run(main())

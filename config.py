@@ -1,1 +1,7 @@
-BOT_TOKEN = '7297102701:AAE_1tlhZ3WPiUu1b8i_wNXc32LfInY5npg'
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_BASE_URL = os.getenv("API_BASE_URL", "https://test.vcc.uriit.ru/api")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")

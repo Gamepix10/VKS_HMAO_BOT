@@ -623,3 +623,13 @@ inline_keyboard
 2024-11-30 16:18:29 - aiogram.event - INFO - Update id=827328799 is handled. Duration 420 ms by bot id=7297102701
 2024-11-30 16:18:29 - aiogram.event - INFO - Update id=827328800 is handled. Duration 207 ms by bot id=7297102701
 2024-11-30 16:18:30 - aiogram.event - INFO - Update id=827328801 is handled. Duration 169 ms by bot id=7297102701
+2024-11-30 16:22:06 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:22:06 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:22:07 - aiogram.event - INFO - Update id=827328802 is handled. Duration 764 ms by bot id=7297102701
+2024-11-30 16:24:27 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-11-30 16:24:27 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7297102701)
+2024-11-30 16:24:33 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-11-30 16:24:33 - aiogram.dispatcher - WARNING - Sleep for 1.390527 seconds and try again... (tryings = 1, bot id = 7297102701)
+2024-11-30 16:35:30 - aiogram.dispatcher - INFO - Start polling
+2024-11-30 16:35:30 - aiogram.dispatcher - INFO - Run polling for bot @vks_hmao_bot id=7297102701 - 'vks_hmao_bot'
+2024-11-30 16:35:39 - aiogram.event - INFO - Update id=827328806 is handled. Duration 511 ms by bot id=7297102701
