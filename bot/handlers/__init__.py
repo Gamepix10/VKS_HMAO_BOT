@@ -4,7 +4,7 @@ from bot.handlers.auth import router as auth_router
 from bot.handlers.schedule import router as schedule_router
 from bot.handlers.calendar import router as calendar_router
 from bot.handlers.search import router as search_router
-
+from .utils.api import APIClient
 
 def setup_handlers() -> Router:
     """
