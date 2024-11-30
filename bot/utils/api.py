@@ -1,18 +1,25 @@
 import httpx
 
+from models import MeetingModel
+
 class APIClient:
-    BASE_URL = "https://example.com/api"
+    BASE_URL = "https://test.vcc.uriit.ru/api"
 
     def __init__(self, token=None):
         self.token = token
 
-    def authenticate(self, email, password):
-        response = httpx.post(f"{self.BASE_URL}/auth/login", json={"email": email, "password": password})
+    def authenticate(self, email, password, fingerprint = {}):
+        response = httpx.post(f"{self.BASE_URL}/auth/login", json={"email": email, "password": password, "fingerprint": fingerprint})
         response.raise_for_status()
         return response.json()["token"]
     
-    def get_vks(self):
-        response = httpx.get(f"{self.BASE_URL}/vks", headers={"Authorization": f"Bearer {self.token}"})
+    def logout(self):
+        response = httpx.post(f"{self.BASE_URL}/auth/logout", headers={"Authorization": f"Bearer {self.token}"})
+        response.raise_for_status()
+        return response.json()
+    
+    def get_meetings(self, MeetingModel: MeetingModel):
+        response = httpx.get(f"{self.BASE_URL}/meetings", params=MeetingModel.dict(exclude_none=True), headers={"Authorization": f"Bearer {self.token}"})
         response.raise_for_status()
         return response.json()
 

@@ -59,6 +59,8 @@ async def password_handler(message: Message, state: FSMContext):
 async def logout_handler(message: Message):
     user = await get_user(message.from_user.id)
     if user:
+        client = APIClient(token=user["token"])
+        await client.logout()
         await save_user({"user_id": message.from_user.id, "email": None, "token": None})
         await message.answer("Вы успешно вышли из системы.")
     else:
